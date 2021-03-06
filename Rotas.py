@@ -15,7 +15,6 @@ def carregar_usuario():
 
 @app.route('/usuario/novo', methods=['POST'])
 def novo_usuario():
-    usuario = {'id_usuario': 'novo', 'nome_usuario': '', 'email_usuario': '', 'senha_usuario': ''}
     try:
         email = request.form["email"]
         senha = request.form["senha"]
@@ -25,10 +24,10 @@ def novo_usuario():
 
         # Monta a resposta.
         mensagem = f"O Usuario {nome} com o email{email} foi criada com id {status['id_usuario']}."
-        return render_template("form_usuario.html", mensagem = mensagem, usuario = usuario)
+        return render_template("menu.html", mensagem = mensagem)
     except Exception:
         mensagem = "Algo de errado não está certo."
-        return render_template("form_usuario.html", mensagem = mensagem, usuario = usuario)
+        return render_template("menu.html", mensagem = mensagem)
 
 
 if __name__ == '__main__':
