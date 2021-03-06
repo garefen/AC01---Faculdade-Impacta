@@ -15,18 +15,20 @@ def carregar_usuario():
 
 @app.route('/usuario/novo', methods=['POST'])
 def novo_usuario():
+    usuario = {'id_usuario': 'novo', 'nome_usuario': '', 'email_usuario': '', 'senha_usuario': ''}
     try:
         email = request.form["email"]
         senha = request.form["senha"]
         nome = request.form["nome"]
         status = cmd_bd.Create_User(email,senha,nome)
 
+
         # Monta a resposta.
         mensagem = f"O Usuario {nome} com o email{email} foi criada com id {status['id_usuario']}."
-        return render_template("form_usuario.html", mensagem = mensagem)
+        return render_template("form_usuario.html", mensagem = mensagem, usuario = usuario)
     except Exception:
         mensagem = "Algo de errado não está certo."
-        return render_template("form_usuario.html", mensagem = mensagem)
+        return render_template("form_usuario.html", mensagem = mensagem, usuario = usuario)
 
 
 if __name__ == '__main__':
