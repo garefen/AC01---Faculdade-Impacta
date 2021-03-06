@@ -20,3 +20,7 @@ def novo_produto():
     except Exception:
         mensagem = "Algo de errado não está certo."
         return render_template("form_usuario.html", mensagem = mensagem)
+
+
+if __name__ == '__main__':
+    app.run()
