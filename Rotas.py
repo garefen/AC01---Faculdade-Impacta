@@ -20,8 +20,10 @@ def novo_usuario():
         email = request.form["email"]
         senha = request.form["senha"]
         nome = request.form["nome"]
+        if len(email) < 1 or len(senha) < 1 or len(nome) < 1:
+            raise Exception
         status = cmd_bd.Create_User(email,senha,nome)
-
+        
 
         # Monta a resposta.
         mensagem = f"O Usuario {nome} com o email{email} foi criada com id {status['id_usuario']}."
