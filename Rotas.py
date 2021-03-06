@@ -31,6 +31,29 @@ def novo_usuario():
         mensagem = "Algo de errado não está certo."
         return render_template("menu.html", mensagem = mensagem)
 
+@app.route("/produto/novo", methods = ["GET"])
+def carregar_produto():
+    usuario = {'id_usuario': 'novo', 'nome_usuario': '', 'email_usuario': '', 'senha_usuario': ''}
+    return render_template("form_usuario.html", usuario = usuario)
+
+@app.route('/produto/novo', methods=['POST'])
+def novo_produto():
+    try:
+        email = request.form["email"]
+        senha = request.form["senha"]
+        nome = request.form["nome"]
+        if len(email) < 1 or len(senha) < 1 or len(nome) < 1:
+            raise Exception
+        status = cmd_bd.Create_User(email,senha,nome)
+        
+
+        # Monta a resposta.
+        mensagem = f"O Usuario {nome} com o email{email} foi criada com id {status['id_usuario']}."
+        return render_template("menu.html", mensagem = mensagem)
+    except Exception:
+        mensagem = "Algo de errado não está certo."
+        return render_template("menu.html", mensagem = mensagem)
+
 
 if __name__ == '__main__':
     app.run()
