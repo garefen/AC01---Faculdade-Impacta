@@ -1,4 +1,5 @@
 import mysql.connector
+from contextlib import closing
 
 def Connection_String():
     connection = mysql.connector.connect(
@@ -39,6 +40,21 @@ def Create_User(email,senha,nome):
     finally:
         cursor.close()
         connection.close()
+
+def Update_User(id_usuario,email,senha,nome):
+    try:
+        connection = Connection_String()
+        cursor = connection.cursor()
+        sql = "UPDATE tb_usuario SET  email_usuario = %s,senha_usuario = %s,nome_usuario =%s where id_usuario = %s"
+        cursor.execute(sql,(str(email), str(senha),str(nome), int(id_usuario)))
+        connection.commit()
+        return {'id_usuario': id_usuario, 'email': email, 'senha': senha, 'nome': nome}
+    except Exception:
+        connection.rollback()
+    finally:
+        cursor.close()
+        connection.close()
+
 def listar_usuarios():
     try:
         connection = Connection_String()
@@ -51,6 +67,11 @@ def listar_usuarios():
     finally:
         cursor.close()
         connection.close()
+
+def consultar_usuario(id_usuario):
+    with closing(Connection_String()) as con, closing(con.cursor()) as cur:
+        cur.execute("SELECT id_usuario, nome_usuario, email_usuario, senha_usuario WHERE id_usuario = %s", [id_usuario])
+        return row_to_dict(cur.description, cur.fetchone())
 
 
 def Create_Produto(nome,tipo,foto,preco_compra,preco_venda,quantidade):
