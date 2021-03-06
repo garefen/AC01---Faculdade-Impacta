@@ -8,6 +8,11 @@ app = Flask(__name__)
 def menu():
     return render_template("menu.html", mensagem = "")
 
+@app.route("/usuario", methods=["GET"])
+def listar_alunos():
+    lista = cmd_bd.listar_usuarios()
+    return render_template("lista_usuario.html", usuarios = lista)
+
 @app.route("/usuario/novo", methods = ["GET"])
 def carregar_usuario():
     usuario = {'id_usuario': 'novo', 'nome_usuario': '', 'email_usuario': '', 'senha_usuario': ''}
@@ -34,6 +39,11 @@ def novo_usuario():
 def carregar_produto():
     produto = {'id_produto': 'novo', 'nome_produto': '', 'tipo_produto': '', 'foto_produto': '','preco_compra_produto': '', 'preco_venda_produto': '','quantidade_produto': '' }
     return render_template("form_produto.html", produto = produto)
+
+@app.route("/produto", methods=["GET"])
+def listar_produto():
+    lista = cmd_bd.listar_produtos()
+    return render_template("lista_produtos.html", produtos = lista)
 
 @app.route('/produto/novo', methods=['POST'])
 def novo_produto():

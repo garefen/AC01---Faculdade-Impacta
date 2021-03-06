@@ -39,6 +39,19 @@ def Create_User(email,senha,nome):
     finally:
         cursor.close()
         connection.close()
+def listar_usuarios():
+    try:
+        connection = Connection_String()
+        cursor = connection.cursor()
+        sql = "SELECT * from tb_usuario order by id_usuario"
+        cursor.execute(sql,)
+        rows = cursor.fetchall()
+        user_list = rows_to_dict(cursor.description, rows)
+        return user_list
+    finally:
+        cursor.close()
+        connection.close()
+
 
 def Create_Produto(nome,tipo,foto,preco_compra,preco_venda,quantidade):
     try:
@@ -51,6 +64,19 @@ def Create_Produto(nome,tipo,foto,preco_compra,preco_venda,quantidade):
         return {'id_produto': id_produto, 'nome': nome, 'tipo': tipo, 'foto': foto, 'preco_compra': preco_compra, 'preco_venda': preco_venda, 'quantidade' : quantidade}
     except Exception:
         connection.rollback()
+    finally:
+        cursor.close()
+        connection.close()
+
+def listar_produtos():
+    try:
+        connection = Connection_String()
+        cursor = connection.cursor()
+        sql = "SELECT * from tb_produto order by id_produto"
+        cursor.execute(sql,)
+        rows = cursor.fetchall()
+        user_list = rows_to_dict(cursor.description, rows)
+        return user_list
     finally:
         cursor.close()
         connection.close()
