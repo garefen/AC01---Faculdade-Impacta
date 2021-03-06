@@ -7,7 +7,8 @@ app = Flask(__name__)
 
 @app.route("/usuario/novo", methods = ["GET"])
 def carregar_usuario():
-    return render_template("form_usuario.html")
+    usuario = {'id_usuario': 'novo', 'nome_usuario': '', 'email_usuario': '', 'senha_usuario': ''}
+    return render_template("form_usuario.html", usuario = usuario)
 
 @app.route('/usuario/novo', methods=['POST'])
 def novo_usuario():
