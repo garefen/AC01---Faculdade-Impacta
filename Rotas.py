@@ -4,6 +4,9 @@ import cmd_bd
 import werkzeug
 
 app = Flask(__name__)
+@app.route("/")
+def menu():
+    return render_template("menu.html", mensagem = "")
 
 @app.route("/usuario/novo", methods = ["GET"])
 def carregar_usuario():
