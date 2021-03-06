@@ -33,7 +33,7 @@ def novo_usuario():
 @app.route("/produto/novo", methods = ["GET"])
 def carregar_produto():
     produto = {'id_produto': 'novo', 'nome_produto': '', 'tipo_produto': '', 'foto_produto': '','preco_compra_produto': '', 'preco_venda_produto': '','quantidade_produto': '' }
-    return render_template("form_usuario.html", produto = produto)
+    return render_template("form_produto.html", produto = produto)
 
 @app.route('/produto/novo', methods=['POST'])
 def novo_produto():
