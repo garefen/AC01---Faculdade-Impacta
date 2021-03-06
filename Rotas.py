@@ -5,9 +5,12 @@ import werkzeug
 
 app = Flask(__name__)
 
+@app.route("/usuario/novo", methods = ["GET"])
+def carregar_usuario():
+    return render_template("form_usuario.html")
 
 @app.route('/usuario/novo', methods=['POST'])
-def novo_produto():
+def novo_usuario():
     try:
         email = request.form["email"]
         senha = request.form["senha"]
