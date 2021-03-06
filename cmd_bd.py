@@ -39,3 +39,18 @@ def Create_User(email,senha,nome):
     finally:
         cursor.close()
         connection.close()
+
+def Create_Produto(nome,tipo,foto,preco_compra,preco_venda,quantidade):
+    try:
+        connection = Connection_String()
+        cursor = connection.cursor()
+        sql = "INSERT INTO tb_produto(nome_produto, tipo_produto, foto_produto, preco_compra_produto, preco_venda_produto, quantidade_produto) VALUES(%s, %s, %s, %s, %s, %s)"
+        cursor.execute(sql,(str(nome), str(tipo), str(foto),str(preco_compra), str(preco_venda), str(quantidade)))
+        connection.commit()
+        id_produto = cursor.lastrowid
+        return {'id_produto': id_produto, 'nome': nome, 'tipo': tipo, 'foto': foto, 'preco_compra': preco_compra, 'preco_venda': preco_venda, 'quantidade' : quantidade}
+    except Exception:
+        connection.rollback()
+    finally:
+        cursor.close()
+        connection.close()
