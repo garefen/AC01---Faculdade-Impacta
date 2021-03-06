@@ -9,7 +9,7 @@
         function excluir() {
             if (!confirm("Você tem certeza?")) return;
             xhr = new XMLHttpRequest();
-            xhr.open('DELETE', "{{ url_for('deletar_produto_api', id_produto = produto['id_produto']) }}");
+            xhr.open('DELETE', "{{ url_for('deletar_produto', id_produto = produto['id_produto']) }}");
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
             xhr.onload = function() {
                 if (xhr.readyState !== 4) return;
