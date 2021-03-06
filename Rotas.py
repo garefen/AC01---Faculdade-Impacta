@@ -11,7 +11,7 @@ def menu():
 @app.route("/usuario", methods=["GET"])
 def listar_alunos_api():
     lista = cmd_bd.listar_usuarios()
-    return render_template("lista_alunos.html", usuarios = lista)
+    return render_template("lista_usuario.html", usuarios = lista)
 
 @app.route("/usuario/novo", methods = ["GET"])
 def carregar_usuario():
