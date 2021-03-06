@@ -38,7 +38,7 @@ def carregar_produto():
 @app.route('/produto/novo', methods=['POST'])
 def novo_produto():
     try:
-        nome = request.forms["nome"]
+        nome = request.form["nome"]
         tipo = request.form["tipo"]
         foto = request.form["foto"]
         preco_compra = request.form["preco_compra"]
