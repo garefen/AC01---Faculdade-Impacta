@@ -4,26 +4,6 @@
     function salvar() {
         document.getElementById("form_principal").submit();
     }
-
-    {% if usuario['id_usuario'] != 'novo' %}
-        function excluir() {
-            if (!confirm("Você tem certeza?")) return;
-            xhr = new XMLHttpRequest();
-            xhr.open('DELETE', "{{ url_for('deletar_usuario_api', id_usuario = usuario['id_usuario']) }}");
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xhr.onload = function() {
-                if (xhr.readyState !== 4) return;
-                if (xhr.status === 200 || xhr.status === 404) {
-                    document.open();
-                    document.write(xhr.responseText);
-                    document.close();
-                } else {
-                    alert('Erro ' + xhr.status);
-                }
-            };
-            xhr.send();
-        }
-    {% endif %}
 {% endblock %}
 {% block conteudo %}
     {% if usuario['id_usuario'] != 'novo' %}
