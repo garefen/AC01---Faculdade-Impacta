@@ -20,7 +20,7 @@
         <div class="kp__form__item">
             <label>Email:</label>
             {% if usuario['id_usuario'] != 'novo' %}
-                <input type="text" id="email" name="email" autocomplete="off" value="{{usuario['email_usuario']}}" disabled/>
+                <input type="text" id="email" name="email" autocomplete="off" value="{{usuario['email_usuario']}}" readonly="readonly"/>
             {% else %}
                 <input type="text" id="email" name="email" autocomplete="off" value="{{usuario['email_usuario']}}" />
             {% endif %}
