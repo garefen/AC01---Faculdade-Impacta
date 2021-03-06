@@ -35,6 +35,29 @@ def novo_usuario():
         mensagem = "Algo de errado não está certo."
         return render_template("menu.html", mensagem = mensagem)
 
+@app.route("/usuario/<int:id_usuario>", methods = ["GET"])
+def carregar_alterar_usuario(id_usuario):
+    try:
+        usuario = cmd_bd.consultar_usuario(id_usuario)
+        return render_template("form_usuario.html", usuario = usuario)
+    except Exception:
+        return render_template("menu.html", mensagem = f"Esse usuario não existe."), 404
+
+@app.route("/usuario/<int:id_usuario>", methods = ["POST"])
+def editar_usuario(id_usuario):
+    try:
+        email = request.form["email"]
+        senha = request.form["senha"]
+        nome = request.form["nome"]
+        if len(email) < 1 or len(senha) < 1 or len(nome) < 1:
+            raise Exception
+        cmd_bd.Update_User(email,senha,nome)
+        mensagem = f"O Usuario {nome} com o email{email} foi alterado."
+        return render_template("menu.html", mensagem = mensagem)
+    except Exception:
+        mensagem = "Algo de errado não está certo."
+        return render_template("menu.html", mensagem = mensagem)    
+
 @app.route("/produto/novo", methods = ["GET"])
 def carregar_produto():
     produto = {'id_produto': 'novo', 'nome_produto': '', 'tipo_produto': '', 'foto_produto': '','preco_compra_produto': '', 'preco_venda_produto': '','quantidade_produto': '' }
