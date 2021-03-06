@@ -37,7 +37,8 @@ app = Flask(__name__)
 @app.route("/login")
 def menu():
     # Autenticação.
-    logado = autenticar_login()
+    # logado = autenticar_login()
+    logado = True
     if logado is None:
         return render_template("/login.html", erro = "")
 
