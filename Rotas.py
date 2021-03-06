@@ -8,6 +8,11 @@ app = Flask(__name__)
 def menu():
     return render_template("menu.html", mensagem = "")
 
+@app.route("/usuario", methods=["GET"])
+def listar_alunos_api():
+    lista = cmd_bd.listar_usuarios()
+    return render_template("lista_alunos.html", usuarios = lista)
+
 @app.route("/usuario/novo", methods = ["GET"])
 def carregar_usuario():
     usuario = {'id_usuario': 'novo', 'nome_usuario': '', 'email_usuario': '', 'senha_usuario': ''}

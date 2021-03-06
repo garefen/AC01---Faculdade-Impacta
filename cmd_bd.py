@@ -39,6 +39,19 @@ def Create_User(email,senha,nome):
     finally:
         cursor.close()
         connection.close()
+def listar_usuarios():
+    try:
+        connection = Connection_String()
+        cursor = connection.cursor()
+        sql = "SELECT * from tb_usuario order by id_usuario"
+        cursor.execute(sql,)
+        rows = cursor.fetchall()
+        user_list = rows_to_dict(cursor.description, rows)
+        return user_list
+    finally:
+        cursor.close()
+        connection.close()
+
 
 def Create_Produto(nome,tipo,foto,preco_compra,preco_venda,quantidade):
     try:
