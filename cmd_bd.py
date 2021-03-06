@@ -67,3 +67,16 @@ def Create_Produto(nome,tipo,foto,preco_compra,preco_venda,quantidade):
     finally:
         cursor.close()
         connection.close()
+
+def listar_produtos():
+    try:
+        connection = Connection_String()
+        cursor = connection.cursor()
+        sql = "SELECT * from tb_produto order by id_produto"
+        cursor.execute(sql,)
+        rows = cursor.fetchall()
+        user_list = rows_to_dict(cursor.description, rows)
+        return user_list
+    finally:
+        cursor.close()
+        connection.close()
