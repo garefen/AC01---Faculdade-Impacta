@@ -73,6 +73,11 @@ def consultar_usuario(id_usuario):
         cur.execute("SELECT id_usuario, nome_usuario, email_usuario, senha_usuario from tb_usuario WHERE id_usuario = %s", [id_usuario])
         return row_to_dict(cur.description, cur.fetchone())
 
+def deletar_usuario(id_usuario):
+    with closing(Connection_String()) as con, closing(con.cursor()) as cur:
+        cur.execute("DELETE FROM tb_usuario WHERE id_usuario = %s", [id_usuario])
+        con.commit()
+
 
 def Create_Produto(nome,tipo,foto,preco_compra,preco_venda,quantidade):
     try:
@@ -101,3 +106,27 @@ def listar_produtos():
     finally:
         cursor.close()
         connection.close()
+
+def consultar_produto(id_produto):
+    with closing(Connection_String()) as con, closing(con.cursor()) as cur:
+        cur.execute("SELECT id_produto, nome_produto, tipo_produto, foto_produto, preco_compra_produto, preco_venda_produto,quantidade_produto from tb_produto WHERE id_produto = %s", [id_produto])
+        return row_to_dict(cur.description, cur.fetchone())
+
+def Update_Product(id_produto,nome,tipo,foto,preco_compra,preco_venda,quantidade):
+    try:
+        connection = Connection_String()
+        cursor = connection.cursor()
+        sql = "UPDATE tb_produto SET  nome_produto = %s,tipo_produto = %s,foto_produto =%s, preco_compra_produto = %s, preco_venda_produto = %s, quantidade_produto = %s where id_produto = %s"
+        cursor.execute(sql,(str(nome), str(tipo),str(foto),str(preco_compra),str(preco_venda),str(quantidade), int(id_produto)))
+        connection.commit()
+        return {'id_produto': id_produto, 'nome': nome, 'tipo': tipo, 'foto': foto, 'preco_compra': preco_compra, 'preco_venda': preco_venda, 'quantidade' : quantidade}
+    except Exception:
+        connection.rollback()
+    finally:
+        cursor.close()
+        connection.close()
+
+def deletar_produto(id_produto):
+    with closing(Connection_String()) as con, closing(con.cursor()) as cur:
+        cur.execute("DELETE FROM tb_produto WHERE id_produto = %s", [id_produto])
+        con.commit()
