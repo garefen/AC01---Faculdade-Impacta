@@ -45,18 +45,18 @@ def carregar_alterar_usuario(id_usuario):
 
 @app.route("/usuario/<int:id_usuario>", methods = ["POST"])
 def editar_usuario(id_usuario):
-    try:
-        email = request.form["email"]
-        senha = request.form["senha"]
-        nome = request.form["nome"]
-        if len(email) < 1 or len(senha) < 1 or len(nome) < 1:
-            raise Exception
-        cmd_bd.Update_User(email,senha,nome)
-        mensagem = f"O Usuario {nome} com o email{email} foi alterado."
-        return render_template("menu.html", mensagem = mensagem)
-    except Exception:
+    #try:
+    email = request.form["email"]
+    senha = request.form["senha"]
+    nome = request.form["nome"]
+    if len(email) < 1 or len(senha) < 1 or len(nome) < 1:
+        raise Exception
+    cmd_bd.Update_User(id_usuario,email,senha,nome)
+    mensagem = f"O Usuario {nome} com o email{email} foi alterado."
+    return render_template("menu.html", mensagem = mensagem)
+    '''except Exception:
         mensagem = "Algo de errado não está certo."
-        return render_template("menu.html", mensagem = mensagem)    
+        return render_template("menu.html", mensagem = mensagem)'''    
 
 @app.route("/produto/novo", methods = ["GET"])
 def carregar_produto():

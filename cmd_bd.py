@@ -70,7 +70,7 @@ def listar_usuarios():
 
 def consultar_usuario(id_usuario):
     with closing(Connection_String()) as con, closing(con.cursor()) as cur:
-        cur.execute("SELECT id_usuario, nome_usuario, email_usuario, senha_usuario WHERE id_usuario = %s", [id_usuario])
+        cur.execute("SELECT id_usuario, nome_usuario, email_usuario, senha_usuario from tb_usuario WHERE id_usuario = %s", [id_usuario])
         return row_to_dict(cur.description, cur.fetchone())
 
 
