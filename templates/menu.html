@@ -1,19 +1,20 @@
 {% extends "base.html" %}
-{% block titulo %}Cadastro{% endblock %}
+{% block titulo %}Menu{% endblock %}
 {% block js %}
     function logout() {
         document.getElementById("form_logout").submit();
     }
 {% endblock %}
 {% block conteudo %}
+    <div class="kp__title">King Pet</div>
     {% if mensagem != '' %}
-        <h2>{{mensagem}}</h2>
+        <div class="kp__message">{{mensagem}}</div>
     {% endif %}
     <p>Escolha a opção que você quer:</p>
-    <p><a href="/aluno">Listar alunos</a></p>
-    <p><a href="/serie">Listar séries</a></p>
-    <p><a href="/aluno/novo">Cadastrar aluno</a></p>
-    <p><a href="/serie/novo">Cadastrar série</a></p>
-    <p><a href="#" onclick="javascript:logout()">Logout</a></p>
+    <p><a class="kp__menu__item" href="/produto">Listar produtos</a></p>
+    <p><a class="kp__menu__item" href="/usuario">Listar usuários</a></p>
+    <p><a class="kp__menu__item" href="/produto/novo">Cadastrar produto</a></p>
+    <p><a class="kp__menu__item" href="/usuario/novo">Cadastrar usuário</a></p>
+    <p><a class="kp__menu__item" href="#" onclick="javascript:logout()">Logout</a></p>
     <form action="/logout" id="form_logout" method="POST" style="display: none"></form>
 {% endblock %}
