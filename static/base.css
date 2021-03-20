@@ -1,73 +1,17 @@
+/* COLORS */
 * {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-/* .mensagem, .erro {
-    font-weight: bold;
-    padding: 10px;
-    margin: 10px;
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.mensagem {
-    color: #008000;
-    background-color: #80ff80;
-    border-color: #008000;
-}
-
-.erro {
-    color: #800000;
-    background-color: #ff8080;
-    border-color: #800000;
-} */
-/* 
-a, button, input[type='button'], .upload {
-    color: blue;
-    background-color: cyan;
-    border-style: solid;
-    border-width: 1px;
-    border-color: blue;
-    border-radius: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
-} */
-/* 
-.upload {
-    position: relative;
-}
-
-input[type='file'] {
-    position: absolute;
-    left: 0;
-    opacity: 0;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    cursor: pointer;
-}
-
-header {
-    color: black;
-    background-color: yellow;
-    padding: 15px;
-    font-weight: bold;
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
-} */
-
-.kp__title {
-    font-size: 30px;   
-}
-
-.kp__menu__item {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .kp {
+    margin-top: 70px;
+  }
+  .kp__title {
+    font-size: 30px;
+  }
+  .kp__menu__item {
     color: black;
     font-size: 18px;
     padding: 5px 10px;
@@ -76,21 +20,47 @@ header {
     margin: 10px 0;
     display: block;
     width: fit-content;
-}
-
-.kp__form {
+  }
+  .form {
     margin-top: 30px;
-}
-
-.kp__form__item {
+  }
+  .form__item {
     margin: 10px 0;
-}
-
-.kp__form__button {
+  }
+  .form__button {
     padding: 5px 15px;
     cursor: pointer;
     background-color: none;
     border: 1px solid black;
     border-radius: 4px;
     font-size: 16px;
-}
+  }
+  
+  .nav__wrapper {
+    background-color: #f4a261ff;
+    height: 70px;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav__logo {
+    font-size: 20px;
+  }
+  .nav__items {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+  }
+  .nav__item {
+    padding: 10px 20px;
+    list-style-type: none;
+  }
+  .nav__item:last-child {
+    padding: 10px 0 10px 20px;
+  }
+  .nav__link {
+    font-size: 20px;
+    color: #264653ff;
+    text-decoration: none;
+  }

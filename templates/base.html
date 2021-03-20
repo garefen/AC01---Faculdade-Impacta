@@ -11,6 +11,27 @@
         </script>
     </head>
     <body>
-        {% block conteudo %}{% endblock %}
+        <nav class="nav__wrapper">
+            <a class="nav__logo nav__link" href="/">
+                King Pet
+            </a>
+            <ul class="nav__items">
+                <li class="nav__item">
+                    <a class="nav__link" href="/produto">Listar Produtos</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="/usuario">Listar Usuários</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="/produto/novo">Cadastrar Produto</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="/usuario/novo">Cadastrar Usuário</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="kp">
+            {% block conteudo %}{% endblock %}
+        </div>
     </body>
 </html>
