@@ -139,5 +139,8 @@ $burnt-sienna: #e76f51ff;
 
 .menu {
     &__logo {
+        display: block;
+        margin: 120px auto 0;
+        width: 440px;
     }
 }
