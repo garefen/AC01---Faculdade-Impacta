@@ -28,9 +28,9 @@
 {% endblock %}
 {% block conteudo %}
     {% if usuario['id_usuario'] != 'novo' %}
-        <div class="kp__title">Editar Usuário</div>
+        <div class="form__title">Editar Usuário</div>
     {% else %}
-        <div class="kp__title">Cadastrar Usuário</div>
+        <div class="form__title">Cadastrar Usuário</div>
     {% endif %}
     <form class="form" action="/usuario/{{ usuario['id_usuario'] }}" method="POST" id="form_principal" enctype="multipart/form-data">
         
@@ -55,5 +55,4 @@
             {% if usuario['id_usuario'] != 'novo' %}<button class="form__button" type="button" onclick="javascript:excluir();">Excluir</button>{% endif %}
         </div>
     </form>
-    <div><a href="/">Voltar</a></div>
 {% endblock %}

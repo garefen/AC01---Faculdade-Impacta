@@ -27,9 +27,9 @@
 {% endblock %}
 {% block conteudo %}
     {% if produto['id_produto'] != 'novo' %}
-        <div class="kp__title">Editar Produto</div>
+        <div class="form__title">Editar Produto</div>
     {% else %}
-        <div class="kp__title">Cadastrar Produto</div>
+        <div class="form__title">Cadastrar Produto</div>
     {% endif %}
     <form class="form" action="/produto/{{ produto['id_produto'] }}" method="POST" id="form_principal" enctype="multipart/form-data">
         {% if produto['id_produto'] != 'novo' %}
@@ -67,5 +67,4 @@
             {% if produto['id_produto'] != 'novo' %}<button class="form__button" type="button" onclick="javascript:excluir();">Excluir</button>{% endif %}
         </div>
     </form>
-    <div><a href="/">Voltar</a></div>
 {% endblock %}

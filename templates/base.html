@@ -4,7 +4,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block titulo %}{% endblock %}</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
         <link rel="stylesheet" href="{{ url_for('static', filename = 'base.css') }}"/>
+        <link rel="icon" href="{{ url_for('static', filename = 'logo.png') }}">
         <script src="{{ url_for('static', filename = 'main.js') }}"></script>
         <script type="text/javascript">
             {% block js %}{% endblock %}
