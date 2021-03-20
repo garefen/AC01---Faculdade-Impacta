@@ -6,15 +6,9 @@
     }
 {% endblock %}
 {% block conteudo %}
-    <div class="kp__title">King Pet</div>
-    {% if mensagem != '' %}
-        <div class="kp__message">{{mensagem}}</div>
-    {% endif %}
-    <p>Escolha a opção que você quer:</p>
-    <p><a class="kp__menu__item" href="/produto">Listar produtos</a></p>
-    <p><a class="kp__menu__item" href="/usuario">Listar usuários</a></p>
-    <p><a class="kp__menu__item" href="/produto/novo">Cadastrar produto</a></p>
-    <p><a class="kp__menu__item" href="/usuario/novo">Cadastrar usuário</a></p>
-    <p><a class="kp__menu__item" href="#" onclick="javascript:logout()">Logout</a></p>
-    <form action="/logout" id="form_logout" method="POST" style="display: none"></form>
+    <div class="menu">
+        <img class="menu__logo" src="{{ url_for('static', filename = 'logo.png') }}" alt="">
+    </div>
+    <!-- <p><a class="kp__menu__item" href="#" onclick="javascript:logout()">Logout</a></p>
+    <form action="/logout" id="form_logout" method="POST" style="display: none"></form> -->
 {% endblock %}
