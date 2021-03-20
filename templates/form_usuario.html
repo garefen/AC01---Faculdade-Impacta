@@ -39,6 +39,10 @@
             <input type="text" id="nome" name="nome" autocomplete="off" value="{{usuario['nome_usuario']}}" />
         </div>
         <div class="form__item">
+            <label for="telefone">Telefone:</label>
+            <input type="text" id="telefone" name="telefone" autocomplete="off" value="{{usuario['telefone_usuario']}}" />
+        </div>
+        <div class="form__item">
             <label>Email:</label>
             {% if usuario['id_usuario'] != 'novo' %}
                 <input type="text" id="email" name="email" autocomplete="off" value="{{usuario['email_usuario']}}" readonly="readonly"/>
