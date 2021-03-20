@@ -1,7 +1,7 @@
 from flask import Flask, make_response, request, render_template, redirect, send_from_directory
-import os
+#import os
 import cmd_bd
-import werkzeug
+#import werkzeug
 
 app = Flask(__name__)
 @app.route("/")
@@ -27,8 +27,6 @@ def novo_usuario():
         if len(email) < 1 or len(senha) < 1 or len(nome) < 1:
             raise Exception
         status = cmd_bd.Create_User(email,senha,nome)
-
-        # Monta a resposta.
         mensagem = f"O Usuario {nome} com o email{email} foi criada com id {status['id_usuario']}."
         return render_template("menu.html", mensagem = mensagem)
     except Exception:
