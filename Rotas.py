@@ -1,9 +1,25 @@
 from flask import Flask, make_response, request, render_template, redirect, send_from_directory
-#import os
+import secrets
 import cmd_bd
+import string
+import SMS
 #import werkzeug
 
 app = Flask(__name__)
+'''
+def autenticar_login():
+    login = request.cookies.get("login", "")
+    senha = request.cookies.get("senha", "")
+    return cmd_bd.fazer_login(login, senha)
+
+@app.route("/login")
+def menu():
+    logado = autenticar_login()
+    logado = True
+    if logado is None:
+        return render_template("/login.html", erro = "")
+    return render_template("menu.html", logado = logado, mensagem = "")    
+'''
 @app.route("/")
 def menu():
     return render_template("menu.html", mensagem = "")
@@ -24,9 +40,13 @@ def novo_usuario():
         email = request.form["email"]
         senha = request.form["senha"]
         nome = request.form["nome"]
-        if len(email) < 1 or len(senha) < 1 or len(nome) < 1:
+        telefone = request.form["telefone"]
+        if len(email) < 1 or len(senha) < 1 or len(nome) < 1 or len(telefone) < 1:
             raise Exception
-        status = cmd_bd.Create_User(email,senha,nome)
+        segredo = string.digits
+        codigo = ''.join(secrets.choice(segredo) for i in range(4)) 
+        status = cmd_bd.Create_User(email,senha,nome,telefone,codigo)
+        SMS.enviar_sms(telefone,codigo)
         mensagem = f"O Usuario {nome} com o email{email} foi criada com id {status['id_usuario']}."
         return render_template("menu.html", mensagem = mensagem)
     except Exception:

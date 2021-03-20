@@ -24,14 +24,18 @@ def rows_to_dict(description, rows):
     for row in rows:
         result.append(row_to_dict(description, row))
     return result
-
-
-def Create_User(email,senha,nome):
+'''
+def fazer_login(login, senha):
+    with closing(conectar()) as con, closing(con.cursor()) as cur:
+        cur.execute("SELECT u.login, u.senha, u.nome FROM usuario u WHERE u.login = ? AND u.senha = ?", [login, senha])
+        return row_to_dict(cur.description, cur.fetchone())
+'''
+def Create_User(email,senha,nome,telefone,codigo):
     try:
         connection = Connection_String()
         cursor = connection.cursor()
-        sql = "INSERT INTO tb_usuario(email_usuario, senha_usuario, nome_usuario) VALUES(%s, %s, %s)"
-        cursor.execute(sql,(str(email), str(senha), str(nome)))
+        sql = "INSERT INTO tb_usuario(email_usuario, senha_usuario, nome_usuario, telefone, cod_seguranca, status) VALUES(%s, %s, %s, %s, %s, %s)"
+        cursor.execute(sql,(str(email), str(senha), str(nome), str(telefone), int(codigo), 0))
         connection.commit()
         id_usuario = cursor.lastrowid
         return {'id_usuario': id_usuario, 'email': email, 'senha': senha, 'nome': nome}
