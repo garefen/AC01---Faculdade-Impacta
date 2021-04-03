@@ -112,3 +112,9 @@
   margin-top: 15px;
   cursor: pointer;
 }
+
+.menu__logo {
+  display: block;
+  margin: 120px auto 0;
+  width: 440px;
+}
