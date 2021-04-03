@@ -19,7 +19,7 @@ app.secret_key = 'EstaChaveNaoDeveSer1234'
 def before_request():
     g.user = None
     if 'id_usuario' in session:
-        user = [x for x in users if x.id == session['user_id']][0]
+        user = bd_AC2.Consultar(session['id_usuario'])
         g.user = user
         
 
@@ -30,18 +30,18 @@ def login():
         try:
             segredo = string.digits
             codigo = ''.join(secrets.choice(segredo) for i in range(4)) 
-            bd_AC2.Cadastrar(request.form['id_usuario'], request.form['nome_usuario'], request.form['senha_usuario'], request.form['telefone_usuario'],codigo)
+            bd_AC2.Cadastrar(request.form['nome_usuario'], request.form['senha_usuario'], request.form['telefone_usuario'],codigo)
             SMS.enviar_sms(request.form['telefone_usuario'], codigo)
-        #user = [x for x in users if x.username == username][0]
-        if user and user.password == password:
-            session['user_id'] = user.id
-            return redirect(url_for('profile'))
-
+            session['id_usuario'] = request.form['id_usuario']
+            return redirect(url_for('menu'))
+        except Exception:
+            erro = "Usuario não Cadastrado"
+            return render_template('menu.html', erro = erro)
         return redirect(url_for('login'))
 
     return render_template('login.html')
 
-@app.route('/profile')
+@app.route('/menu')
 def profile():
     if not g.user:
         return redirect(url_for('login'))
