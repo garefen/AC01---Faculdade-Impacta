@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% block titulo %}Profile{% endblock %}
 {% block conteudo %}
+    {% if erro %}
+        <p>Erro: {{erro}}</p>
+    {% endif %}
     <p>
         {{g.user.username}}'s Profile
     </p>
