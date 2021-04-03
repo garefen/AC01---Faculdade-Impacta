@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block titulo %}Login{% endblock %}
+{% block js %}
+    function salvar() {
+        document.getElementById("form_principal").submit();
+    }
+{% endblock %}
+{% block conteudo %}
+    <div class="form__title">Autenticar</div>
+    <form class="form" action="/autenticar" method="POST" id="form_principal" enctype="multipart/form-data">
+        <div class="form__item">
+            <label for="codigo_validacao">Código de autenticação:</label>
+            <input type="text" id="codigo_validacao" name="codigo_validacao" autocomplete="off"/>
+        </div>
+        <div class="form__item">
+            <button class="form__button" type="button" onclick="javascript:salvar();">Enviar</button>
+        </div>
+    </form>
+{% endblock %}

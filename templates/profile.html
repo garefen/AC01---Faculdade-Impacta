@@ -7,4 +7,12 @@
     <p>
         {{g.user.nome_usuario}}'s Profile
     </p>
+
+    {% if g.user.STATUS == 0 %}
+        <div><a href="/autenticar">Autenticar usuário</a></div>
+    {% endif %}
+
+    <form action="/login" method="DELETE" id="form_principal" enctype="multipart/form-data">
+        <button type="submit">Encerrar sessão</button>
+    </form>
 {% endblock %}
