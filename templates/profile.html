@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 {% block titulo %}Profile{% endblock %}
+{% block js %}
+    function salvar() {
+        document.getElementById("form_principal").submit();
+    }
+{% endblock %}
 {% block conteudo %}
     {% if erro %}
         <p>Erro: {{erro}}</p>
@@ -13,6 +18,6 @@
     {% endif %}
 
     <form action="/login" method="DELETE" id="form_principal" enctype="multipart/form-data">
-        <button type="submit">Encerrar sessão</button>
+        <button type="button" onclick="javascript:salvar();">Encerrar sessão</button>
     </form>
 {% endblock %}
