@@ -32,8 +32,7 @@ def login():
             codigo = ''.join(secrets.choice(segredo) for i in range(4)) 
             bd_AC2.Cadastrar(request.form['id_usuario'], request.form['nome_usuario'], request.form['senha_usuario'], request.form['telefone_usuario'],codigo)
             SMS.enviar_sms(request.form['telefone_usuario'], codigo)
-        
-        user = [x for x in users if x.username == username][0]
+        #user = [x for x in users if x.username == username][0]
         if user and user.password == password:
             session['user_id'] = user.id
             return redirect(url_for('profile'))
