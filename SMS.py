@@ -1,5 +1,3 @@
-import secrets
-import string
 from twilio.rest import Client
 
 def enviar_sms(telefone,senha):
