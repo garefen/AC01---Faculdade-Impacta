@@ -2,7 +2,7 @@
 {% block titulo %}Profile{% endblock %}
 {% block js %}
     function salvar() {
-        document.getElementById("form_principal").submit();
+        document.getElementById("form_autenticacao").submit();
     }
 {% endblock %}
 {% block conteudo %}
@@ -17,7 +17,7 @@
         <div><a href="/autenticar">Autenticar usuário</a></div>
     {% endif %}
 
-    <form action="/login" method="DELETE" id="form_principal" enctype="multipart/form-data">
+    <form action="/login" method="DELETE" id="form_autenticacao" enctype="multipart/form-data">
         <button type="button" onclick="javascript:salvar();">Encerrar sessão</button>
     </form>
 {% endblock %}
