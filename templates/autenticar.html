@@ -4,6 +4,9 @@
     function salvar() {
         document.getElementById("form_principal").submit();
     }
+    function enviarCodigo() {
+        document.getElementById("form_reenviarCodigo").submit();
+    }
 {% endblock %}
 {% block conteudo %}
     <div class="form__title">Autenticar</div>
@@ -14,6 +17,11 @@
         </div>
         <div class="form__item">
             <button class="form__button" type="button" onclick="javascript:salvar();">Enviar</button>
+        </div>
+    </form>
+    <form class="form" action="/enviarcodigo" method="POST" id="form_reenviarCodigo" enctype="multipart/form-data">
+        <div class="form__item">
+            <button class="form__button" type="button" onclick="javascript:enviarCodigo();">Reenviar Código</button>
         </div>
     </form>
 {% endblock %}
