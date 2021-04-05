@@ -21,6 +21,8 @@ CREATE TABLE IF NOT EXISTS `tb_usuario` (
   `email_usuario` varchar(300) NOT NULL,
   `senha_usuario` varchar(20) NOT NULL,
   `nome_usuario` varchar(50) NOT NULL,
+  'cod_segurança' int(11) not null,
+  'status' boolean not null DEFAULT 0;
   PRIMARY KEY (`id_usuario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
