@@ -38,7 +38,7 @@ def Deletar(id,codigo):
         if teste1['STATUS'] == 1:
             return
         if teste1['codigo_validacao'] == codigo:
-            cur.execute("UPDATE AC2 SET codigo_validacao = 123 WHERE id_usuario = %s", [id])
+            cur.execute("UPDATE AC2 SET codigo_validacao =123 WHERE id_usuario = %s", [id])
             con.commit()
 
 app = Flask(__name__)
