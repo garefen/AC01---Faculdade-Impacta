@@ -23,7 +23,9 @@ def reenviar():
         resource = build("customsearch", 'v1', developerKey=api_key).cse()
         result = resource.list(q=request.form['google_search'], cx=cse_key, num= 10).execute()
         g.resultado = result
-        return redirect(url_for('resultados'))
+        for teste in g.resultado['items']:
+            print(teste['title'])
+        return render_template('resultados.html', g=g)
     return render_template('pesquisa.html')
 
 @app.route('/resultados', methods=['GET', 'POST'])
@@ -34,7 +36,7 @@ def resultados():
         resource = build("customsearch", 'v1', developerKey=api_key).cse()
         result = resource.list(q=request.form['google_search'], cx=cse_key, num= 10).execute()
         g.resultado = result
-        return redirect(url_for('resultados'))
+        return render_template('resultados.html', g=g)
     return render_template('resultados.html')
 if __name__ == '__main__':
     app.run()
