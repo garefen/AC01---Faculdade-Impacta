@@ -19,4 +19,14 @@
             </tr>
         {% endfor %}
     </table>
+    <br/><br/>
+    <form class="form" action="/google" method="POST" id="form_principal" enctype="multipart/form-data">
+        <div class="form__item">
+            <label for="google_search">Pesquisa:</label>
+            <input type="text" id="google_search" name="google_search" autocomplete="off"/>
+        </div>
+        <div class="form__item">
+            <button class="form__button" type="button" onclick="javascript:salvar();">Enviar</button>
+        </div>
+    </form>
 {% endblock %}
