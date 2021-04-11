@@ -7,6 +7,7 @@
 {% endblock %}
 {% block conteudo %}
     <div class="form__title">Resultados</div>
+    <br/>
     <table class="resultados">
         <tr class="resultados__heading">
             <th>Texto</th>
@@ -15,7 +16,7 @@
         {% for resultado in g['resultado']['items'] %}
             <tr class="resultados__row">
                 <td>{{ resultado['title'] }}</td>
-                <td><a href="{{ resultado['link'] }}">{{ resultado['displayLink'] }}</a></td>
+                <td><a target="_blank" href="{{ resultado['link'] }}">{{ resultado['displayLink'] }}</a></td>
             </tr>
         {% endfor %}
     </table>

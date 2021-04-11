@@ -112,3 +112,24 @@
   margin-top: 15px;
   cursor: pointer;
 }
+
+.menu__logo {
+  display: block;
+  margin: 120px auto 0;
+  width: 440px;
+}
+
+.resultados {
+  margin: 0 auto;
+}
+.resultados__heading th {
+  border: 1px solid #ddd;
+  padding: 12px 8px;
+  text-align: left;
+  background-color: #e76f51ff;
+  color: white;
+}
+.resultados__row td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}

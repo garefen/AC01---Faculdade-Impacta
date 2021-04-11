@@ -144,3 +144,24 @@ $burnt-sienna: #e76f51ff;
         width: 440px;
     }
 }
+
+.resultados {
+    margin: 0 auto;
+
+    &__heading {
+        th {
+            border: 1px solid #ddd;
+            padding: 12px 8px;
+            text-align: left;
+            background-color: $burnt-sienna;
+            color: white;
+        }
+    }
+
+    &__row {
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }   
+    }
+}
