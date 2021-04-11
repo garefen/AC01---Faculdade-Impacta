@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block titulo %}Pesquisa{% endblock %}
+{% block js %}
+    function salvar() {
+        document.getElementById("form_principal").submit();
+    }
+{% endblock %}
+{% block conteudo %}
+    <div class="form__title">Resultados</div>
+    <table class="resultados">
+        <tr class="resultados__heading">
+            <th>Texto</th>
+            <th>Link</th>
+        </tr>
+        {% for resultado in g['resultado']['items'] %}
+            <tr class="resultados__row">
+                <td>{{ resultado['title'] }}</td>
+                <td><a href="{{ resultado['link'] }}">{{ resultado['displayLink'] }}</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
