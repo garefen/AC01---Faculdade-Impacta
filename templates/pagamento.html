@@ -10,11 +10,19 @@
     <form class="form" action="/pagamento" method="POST" id="form_principal" enctype="multipart/form-data">
         <div class="form__item">
             <label for="nome_usuario">Produto:</label>
-            <input type="text" id="nome_usuario" name="nome_produto" value="Saco de ração" autocomplete="off"/>
+            <input type="text" id="nome_usuario" name="nome_produto" value="Brinquedo" autocomplete="off"/>
         </div>
         <div class="form__item">
-            <label for="senha_usuario">Valor:</label>
-            <input type="text" id="senha_usuario" name="valor_produto" value="50,00" autocomplete="off"/>
+            <label for="nome_usuario">Descrição:</label>
+            <input type="text" id="nome_usuario" name="descricao_produto" value="Brinquedo de cachorro" autocomplete="off"/>
+        </div>
+        <div class="form__item">
+            <label for="nome_usuario">Quantidade:</label>
+            <input type="text" id="nome_usuario" name="quantidade_produto" value="10" autocomplete="off"/>
+        </div>
+        <div class="form__item">
+            <label for="senha_usuario">Preço:</label>
+            <input type="text" id="senha_usuario" name="preco_produto" value="50" autocomplete="off"/>
         </div>
         <div class="form__item">
             <button class="form__button" type="button" onclick="javascript:salvar();">Salvar</button>
