@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block titulo %}Pagamento{% endblock %}
+{% block js %}
+    function salvar() {
+        document.getElementById("form_principal").submit();
+    }
+{% endblock %}
+{% block conteudo %}
+    <div class="form__title">Pagamento</div>
+    <form class="form" action="/pagamento" method="POST" id="form_principal" enctype="multipart/form-data">
+        <div class="form__item">
+            <label for="nome_usuario">Produto:</label>
+            <input type="text" id="nome_usuario" name="nome_produto" value="Saco de ração" autocomplete="off"/>
+        </div>
+        <div class="form__item">
+            <label for="senha_usuario">Valor:</label>
+            <input type="text" id="senha_usuario" name="valor_produto" value="50,00" autocomplete="off"/>
+        </div>
+        <div class="form__item">
+            <button class="form__button" type="button" onclick="javascript:salvar();">Salvar</button>
+        </div>
+    </form>
+{% endblock %}
