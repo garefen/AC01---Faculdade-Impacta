@@ -20,12 +20,12 @@ def reenviar():
     if request.method == "POST":
         api_key = "AIzaSyDZY4tCSmJPQ1KHKfYFTTfyK3spMBRzlo8"
         cse_key = "669745d1113150082"
-        resource = build("customsearch", 'v1', developerKey=api_key).cse()
-        result = resource.list(q=request.form['google_search'], cx=cse_key, num= 10).execute()
-        g.resultado = result
-        for teste in g.resultado['items']:
+        montagem = build("customsearch", 'v1', developerKey=api_key).cse()
+        result = montagem.list(q=request.form['google_search'], cx=cse_key, num= 10).execute()
+        for teste in result['items']:
             print(teste['title'])
-        return render_template('resultados.html', g=g)
+        x={"resultado": result}
+        return render_template('resultados.html', g=x)
     return render_template('pesquisa.html')
 
 @app.route('/resultados', methods=['GET', 'POST'])
