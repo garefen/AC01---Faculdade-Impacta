@@ -9,20 +9,76 @@
     <div class="form__title">Pagamento</div>
     <form class="form" action="/pagamento" method="POST" id="form_principal" enctype="multipart/form-data">
         <div class="form__item">
-            <label for="nome_usuario">Produto:</label>
-            <input type="text" id="nome_usuario" name="nome_produto" value="Brinquedo" autocomplete="off"/>
+            <label for="itemId">ItemId:</label>
+            <input type="text" id="itemId" name="itemId" value="12345" autocomplete="off"/>
         </div>
         <div class="form__item">
-            <label for="nome_usuario">Descrição:</label>
-            <input type="text" id="nome_usuario" name="descricao_produto" value="Brinquedo de cachorro" autocomplete="off"/>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="first" autocomplete="off"/>
         </div>
         <div class="form__item">
-            <label for="nome_usuario">Quantidade:</label>
-            <input type="text" id="nome_usuario" name="quantidade_produto" value="10" autocomplete="off"/>
+            <label for="description">Description:</label>
+            <input type="text" id="description" name="description" value="Here's the first line item" autocomplete="off"/>
         </div>
         <div class="form__item">
-            <label for="senha_usuario">Preço:</label>
-            <input type="text" id="senha_usuario" name="preco_produto" value="50" autocomplete="off"/>
+            <label for="quantity">Quantity:</label>
+            <input type="text" id="quantity" name="quantity" value="50" autocomplete="off"/>
+        </div>
+        <div class="form__item">
+            <label for="unitPrice">UnitPrice:</label>
+            <input type="text" id="unitPrice" name="unitPrice" value="99912.95" autocomplete="off"/>
+        </div>
+        <div class="form__item">
+            <label for="cardNumber">CardNumber:</label>
+            <input type="text" id="cardNumber" name="cardNumber" value="4111111111111111" autocomplete="off"/>
+        </div>
+        <div class="form__item">
+            <label for="expirationDate">ExpirationDate:</label>
+            <input type="text" id="expirationDate" name="expirationDate" value="2035-12" autocomplete="off"/>
+        </div>
+        <div class="form__item">
+            <label for="cardCode">CardCode:</label>
+            <input type="text" id="cardCode" name="cardCode" value="123" autocomplete="off"/>
+        </div>
+        <div class="form__item">
+            <label for="invoiceNumber">InvoiceNumber:</label>
+            <input type="text" id="invoiceNumber" name="invoiceNumber" value="1111" autocomplete="off"/>
+        </div>
+        <div class="form__item">
+            <label for="orderDescription">OrderDescription:</label>
+            <input type="text" id="orderDescription" name="orderDescription" value="Golf Shirts" autocomplete="off"/>
+        </div>
+        <div class="form__item">
+            <label for="firstName">FirstName:</label>
+            <input type="text" id="firstName" name="firstName" value="Ellen" autocomplete="off"/>
+        </div>
+        <div class="form__item">
+            <label for="lastName">LastName:</label>
+            <input type="text" id="lastName" name="lastName" value="Johnson" autocomplete="off"/>
+        </div>
+        <div class="form__item">
+            <label for="company">Company:</label>
+            <input type="text" id="company" name="company" value="0" autocomplete="off"/>
+        </div>
+        <div class="form__item">
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" value="0" autocomplete="off"/>
+        </div>
+        <div class="form__item">
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" value="0" autocomplete="off"/>
+        </div>
+        <div class="form__item">
+            <label for="state">State:</label>
+            <input type="text" id="state" name="state" value="SP" autocomplete="off"/>
+        </div>
+        <div class="form__item">
+            <label for="zip">Zip:</label>
+            <input type="text" id="zip" name="zip" value="000" autocomplete="off"/>
+        </div>
+        <div class="form__item">
+            <label for="country">country:</label>
+            <input type="text" id="country" name="country" value="BRA" autocomplete="off"/>
         </div>
         <div class="form__item">
             <button class="form__button" type="button" onclick="javascript:salvar();">Salvar</button>
