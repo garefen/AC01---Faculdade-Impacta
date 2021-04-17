@@ -2,7 +2,11 @@
 {% block titulo %}Pesquisa{% endblock %}
 {% block js %}
     function salvar() {
-        document.getElementById("form_principal").submit();
+        const texto = document.getElementById("google_search").value;
+        console.log(texto);
+        if (texto != "") {
+            document.getElementById("form_principal").submit();
+        }
     }
 {% endblock %}
 {% block conteudo %}
