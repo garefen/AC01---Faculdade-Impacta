@@ -4,6 +4,10 @@
     function voltar() {
         window.history.back()
     }
+
+    function salvar() {
+        document.getElementById("form_principal").submit();
+    }
 {% endblock %}
 {% block conteudo %}
     <div class="form__title">Confirmação de Pagamento</div>
@@ -25,4 +29,8 @@
             <button onclick="voltar()">Voltar</button>
         {% endif %}
     </div>
+    <form action="/estorno" method="POST" id="form_principal" enctype="multipart/form-data">
+        <label>Requisitar estorno da transação realizada:</label>
+        <button type="button" onclick="javascript:salvar();">Requisitar</button>
+    </form>
 {% endblock %}
