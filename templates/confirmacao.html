@@ -1,9 +1,13 @@
 {% extends "base.html" %}
 {% block titulo %}Confirmação de Pagamento{% endblock %}
+{% block js %}
+    function voltar() {
+        window.history.back()
+    }
+{% endblock %}
 {% block conteudo %}
     <div class="form__title">Confirmação de Pagamento</div>
     <div class="cf__resultado">
-
         {% if response.messages.resultCode == "Ok" %}
             <div class="cf__code">
                 Successfully created transaction with Transaction ID: {{ response.transactionResponse.transId }}
@@ -18,7 +22,7 @@
             <div class="cf__description">
                 Error Message: {{ response.transactionResponse.errors.error[0].errorText }}
             </div>
+            <button onclick="goBack()">Voltar</button>
         {% endif %}
-        
     </div>
 {% endblock %}

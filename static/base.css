@@ -4,7 +4,6 @@
   margin: 0;
   padding: 0;
 }
-
 .kp {
   margin: 70px 10px 0;
 }
@@ -35,9 +34,8 @@
   border-radius: 4px;
   font-size: 16px;
 }
-
 .nav__wrapper {
-  background-color: #f4a261ff;
+  background-color: #f4a261 ff;
   height: 70px;
   padding: 0 30px;
   display: flex;
@@ -61,16 +59,15 @@
 }
 .nav__link {
   font-size: 20px;
-  color: #264653ff;
+  color: #264653 ff;
   text-decoration: none;
 }
-
 .form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 2px solid black;
-  box-shadow: 15px 15px 1px #e76f51ff, 15px 15px 1px 2px black;
+  border: 2px solid rgba(0, 0, 0, 1);
+  box-shadow: 15px 15px 1px #e76f51 ff, 15px 15px 1px 2px rgba(0, 0, 0, 1);
   max-width: 400px;
   margin: 50px auto 100px;
   padding: 50px 100px;
@@ -89,7 +86,7 @@
 }
 .form__item input {
   border: none;
-  border-bottom: 5px solid #2a9d8fff;
+  border-bottom: 5px solid #2a9d8f ff;
   padding-left: 5px;
   min-width: 250px;
   font-size: 18px;
@@ -97,28 +94,26 @@
   margin: 10px 0 20px;
 }
 .form__item input:focus {
-  border-bottom: 5px solid #264653ff;
+  border-bottom: 5px solid #264653 ff;
   outline: none;
 }
 .form__button {
-  background-color: #e76f51ff;
+  background-color: #e76f51 ff;
   border: 1px solid black;
   color: white;
   padding: 5px 20px;
-  box-shadow: 3px 3px 1px #264653ff, 3px 3px 1px 1px black;
+  box-shadow: 3px 3px 1px #264653 ff, 3px 3px 1px 1px rgba(0, 0, 0, 1);
   letter-spacing: 2px;
   text-transform: uppercase;
   font-size: 20px;
   margin-top: 15px;
   cursor: pointer;
 }
-
 .menu__logo {
   display: block;
   margin: 120px auto 0;
   width: 440px;
 }
-
 .resultados {
   margin: 0 auto;
 }
@@ -126,10 +121,32 @@
   border: 1px solid #ddd;
   padding: 12px 8px;
   text-align: left;
-  background-color: #e76f51ff;
+  background-color: #e76f51 ff;
   color: white;
 }
 .resultados__row td {
   border: 1px solid #ddd;
   padding: 8px;
+}
+.cf__resultado {
+  font: 18px sans-serif;
+  text-align: center;
+}
+.cf__code {
+  margin: 5px;
+}
+.cf__description {
+  margin: 5px;
+}
+.cf button {
+  background-color: #e76f51 ff;
+  border: 1px solid black;
+  color: white;
+  padding: 5px 20px;
+  box-shadow: 3px 3px 1px #264653 ff, 3px 3px 1px 1px rgba(0, 0, 0, 1);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 20px;
+  margin-top: 15px;
+  cursor: pointer;
 }

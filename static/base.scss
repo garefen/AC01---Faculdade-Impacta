@@ -166,7 +166,30 @@ $burnt-sienna: #e76f51ff;
     }
 }
 
-.cf__resultado {
-    font: 18px sans-serif;
-    text-align: center;
+.cf {
+    &__resultado {
+        font: 18px sans-serif;
+        text-align: center;
+    }
+
+    &__code {
+        margin: 5px;
+    }
+    
+    &__description {
+        margin: 5px;
+    }
+
+    button {
+        background-color: $burnt-sienna;
+        border: 1px solid black;
+        color: white;
+        padding: 5px 20px;
+        box-shadow: 3px 3px 1px $charcoal, 3px 3px 1px 1px rgba(0,0,0,1);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-size: 20px;
+        margin-top: 15px;
+        cursor: pointer;
+    }
 }
