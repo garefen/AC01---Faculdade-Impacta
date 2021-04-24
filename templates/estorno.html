@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block titulo %}Pagamento{% endblock %}
+{% block js %}
+    function salvar() {
+        document.getElementById("form_principal").submit();
+    }
+{% endblock %}
+{% block conteudo %}
+    <div class="form__title">Estorno</div>
+    <form class="form" action="/estorno" method="POST" id="form_principal" enctype="multipart/form-data">
+        <div class="form__item">
+            <label>Requisitar estorno da última transação realizada:</label>
+            <button class="form__button" type="button" onclick="javascript:salvar();">Requisitar</button>
+        </div>
+    </form>
+{% endblock %}
