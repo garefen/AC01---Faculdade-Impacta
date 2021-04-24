@@ -29,8 +29,7 @@
             <button onclick="voltar()">Voltar</button>
         {% endif %}
     </div>
-    <form action="/estorno" method="POST" id="form_principal" enctype="multipart/form-data">
-        <label>Requisitar estorno da transação realizada:</label>
-        <button type="button" onclick="javascript:salvar();">Requisitar</button>
+    <form action="/estorno" method="GET" id="form_principal" enctype="multipart/form-data">
+        <button type="button" onclick="javascript:salvar();">Extorno</button>
     </form>
 {% endblock %}

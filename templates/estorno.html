@@ -9,8 +9,23 @@
     <div class="form__title">Estorno</div>
     <form class="form" action="/estorno" method="POST" id="form_principal" enctype="multipart/form-data">
         <div class="form__item">
-            <label>Requisitar estorno da última transação realizada:</label>
-            <button class="form__button" type="button" onclick="javascript:salvar();">Requisitar</button>
+            <label for="CardNumber">CardNumber:</label>
+            <input type="text" id="CardNumber" name="CardNumber" value="4111111111111111" autocomplete="off"/>
+        </div>
+        <div class="form__item">
+            <label for="ExpirationDate">ExpirationDate:</label>
+            <input type="text" id="ExpirationDate" name="ExpirationDate" value="2035-12" autocomplete="off"/>
+        </div>
+        <div class="form__item">
+            <label for="Amount">Amount:</label>
+            <input type="text" id="Amount" name="Amount" value="30" autocomplete="off"/>
+        </div>
+        <div class="form__item">
+            <label for="RefTransId">RefTransId:</label>
+            <input type="text" id="RefTransId" name="RefTransId" value="0" autocomplete="off"/>
+        </div>
+        <div class="form__item">
+            <button class="form__button" type="button" onclick="javascript:salvar();">Extorno</button>
         </div>
     </form>
 {% endblock %}

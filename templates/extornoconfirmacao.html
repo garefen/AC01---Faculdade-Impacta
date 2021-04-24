@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block titulo %}Confirmação de Pagamento{% endblock %}
+{% block conteudo %}
+  <div class="form__title">Confirmação de Extorno</div>
+  <div class="cf__resultado">
+    {% if response.messages.resultCode == "Ok" %}
+      <div class="cf__code">
+        Successfully created transaction with Transaction ID: {{ response.transactionResponse.transId }}
+      </div>
+      <div class="cf__description">
+        Description: {{ response.transactionResponse.messages.message[0].description }}
+      </div>
+    {% else %}
+      <div class="cf__code">
+        Error Code: {{ response.transactionResponse.errors.error[0].errorCode }}
+      </div>
+      <div class="cf__description cf__description cf__description
+          cf__description cf__description cf__description">
+        Error Message: {{ response.transactionResponse.errors.error[0].errorText }}
+      </div>
+      <button onclick="voltar()">Voltar</button>
+    {% endif %}
+  </div>
+{% endblock %}
